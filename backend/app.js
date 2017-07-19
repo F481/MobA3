@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -22,6 +23,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/moba3db", function(err, db) {
+  if (err) return console.log(err);
+
+  console.log("connected to database");
+  
+});
 
 app.use('/', index);
 app.use('/users', users);
