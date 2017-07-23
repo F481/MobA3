@@ -14,8 +14,7 @@ class WhiskyDisplay extends React.Component {
           );
       }); */
 
-        const Whiskys = this.props.whiskys.map((whisky) => <Whisky key={whisky.id} title={whisky.name}
-                                                                   description={whisky.description}/>);
+        const Whiskys = this.props.whiskys.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
 
         return (
             <div>
