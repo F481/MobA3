@@ -8,6 +8,7 @@ import WhiskyDisplayAll from "./pages/whiskyDisplayAll";
 import WhiskyDisplayScotch from "./pages/whiskyDisplayScotch";
 import Layout from "./pages/layout";
 import Search from "./pages/search";
+import Cashout from "./pages/cashout";
 import allReducers from "./reducers/index";
 import {createStore} from "redux";
 
@@ -22,6 +23,7 @@ ReactDOM.render(
                 <Route path="all(/:whiskey)" name="all" component={WhiskyDisplayAll}></Route>
                 <Route path="scotch(/:whiskey)" name="scotch" component={WhiskyDisplayScotch}></Route>
                 <Route path="search" name="search" component={Search}></Route>
+                <Route path="cashout" name="cashout" component={Cashout}></Route>
             </Route>
         </Router>
     </Provider>,
