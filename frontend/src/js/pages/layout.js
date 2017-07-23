@@ -3,6 +3,7 @@ import { Link } from "react-router";
 
 import Footer from "../components/layout/footer";
 import Navbar from "../components/layout/navbar";
+import Basket from "../components/basket";
 
 export default class Layout extends React.Component {
   render() {
@@ -10,7 +11,6 @@ export default class Layout extends React.Component {
     const Position = {
       marginTop: "120px"
     };
-    console.log("layout");
     return (
       <div>
 
@@ -25,7 +25,7 @@ export default class Layout extends React.Component {
             </div>
             <div class="col-lg-3">
               <div class="affix">
-                <h1>Warenkorb</h1>
+                <Basket/>
               </div>
             </div>
           </div>

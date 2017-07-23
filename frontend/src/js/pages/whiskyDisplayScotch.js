@@ -6,8 +6,7 @@ import Whisky from "../components/whisky";
 class WhiskyDisplay extends React.Component {
     render() {
 
-        const Whiskys = this.props.whiskys.map((whisky) => <Whisky key={whisky.id} title={whisky.name}
-                                                                   description={whisky.description}/>);
+        const Whiskys = this.props.whiskys.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
 
         //TODO whisky-reducer.filter(kategory=scotch).map((etc)=>Whisky);
 
