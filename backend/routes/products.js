@@ -6,7 +6,7 @@ var mongoClient = mongodb.MongoClient;
 var database = null;
 var collection = null;
 
-// Connect to the db
+// TODO better connect on a central point? See app.js
 mongoClient.connect("mongodb://localhost:27017/moba3db", function (err, db) {
     if (err) return console.log(err);
 
@@ -68,7 +68,7 @@ router.delete('/:id', function (req, res, next) {
     var id = req.params.id;
 
     if (!mongodb.ObjectId.isValid(id)) return res.send('{ "err": "Given id is not of matching to an ObjectId of MongoDB" }');
-    
+
     collection.deleteOne({"_id": mongodb.ObjectId(id)}, function (error, collection) {
         if (error) return res.send(error);
 
