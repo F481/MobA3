@@ -7,7 +7,15 @@ var bodyParser = require('body-parser');
 
 var express = require('express');
 var passport = require('passport');
+// CORS for Access-Controll-Allow
+var cors = require('cors');
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
 
+    next();
+}
 const config = require('./config');
 // connect to the database and load models
 require('./models').connect(config.dbUri);
@@ -22,7 +30,8 @@ var products = require('./routes/products');
 var auth = require('./routes/auth');
 
 var app = express();
-
+app.use(cors());
+app.use(allowCrossDomain);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
