@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://localhost:27017/moba3db",
+  "jwtSecret": "ifewaekae2je9chai5Ei"
+}
