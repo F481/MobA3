@@ -1,7 +1,4 @@
 
-
-import whisky from "../components/whisky";
-
 export default function (state = {
     basket: [],
 }, action) {
