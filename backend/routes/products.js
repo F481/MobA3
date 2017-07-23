@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongodb = require('mongodb')
+var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 
 var database = null;
@@ -31,6 +31,8 @@ router.post('/', function (req, res, next) {
     if (!product.description) return res.send('{ "err": "product description is missing" }');
     if (!product.category) return res.send('{ "err": "product category is missing" }');
     if (!product.amount) return res.send('{ "err": "product amount is missing" }');
+    // TODO image upload on product creation
+    if (!product.imageUrl) return res.send('{ "err": "product image url is missing" }');
 
     collection.insert(product);
     res.send("ok");
@@ -41,8 +43,14 @@ router.put('/:id', function (req, res, next) {
     var product = req.body.product;
 
     if (!mongodb.ObjectId.isValid(id)) return res.send('{ "err": "Given id is not of matching to an ObjectId of MongoDB" }');
+    if (!product.name) return res.send('{ "err": "product name is missing" }');
+    if (!product.price) return res.send('{ "err": "product price is missing" }');
+    if (!product.description) return res.send('{ "err": "product description is missing" }');
+    if (!product.category) return res.send('{ "err": "product category is missing" }');
+    if (!product.amount) return res.send('{ "err": "product amount is missing" }');
+    // TODO image upload on product creation
+    if (!product.imageUrl) return res.send('{ "err": "product image url is missing" }');
 
-    console.log("ObjectId is valid");
     try {
         collection.updateOne(
             { "_id" : mongodb.ObjectId(id) },
@@ -60,8 +68,7 @@ router.delete('/:id', function (req, res, next) {
     var id = req.params.id;
 
     if (!mongodb.ObjectId.isValid(id)) return res.send('{ "err": "Given id is not of matching to an ObjectId of MongoDB" }');
-
-    console.log("ObjectId is valid");
+    
     collection.deleteOne({"_id": mongodb.ObjectId(id)}, function (error, collection) {
         if (error) return res.send(error);
 
