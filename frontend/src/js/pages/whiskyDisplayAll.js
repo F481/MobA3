@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
+import {fetchProducts} from '../actions/productActions'
 import Whisky from "../components/whisky";
+var Whiskys;
+@connect((store) => {
+    console.log("@connectStore_WhiskyAll");
+    return {
+        products: store.whiskys.products
+    };
+})
 
 class WhiskyDisplay extends React.Component {
+    componentWillMount() {
+        this.props.dispatch(fetchProducts());
+
+    }
+
     render() {
         /* DEBUG
       const Whiskys = this.props.whiskys.map((whisky) => {
@@ -14,7 +26,14 @@ class WhiskyDisplay extends React.Component {
           );
       }); */
 
-        const Whiskys = this.props.whiskys.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
+
+        if(this.props.products.products == undefined){
+            console.log(" Props.products undefined");
+        }else{
+            console.log("next Props of WhiskyallSide");
+            console.log(this.props.products.products);
+            Whiskys =this.props.products.products.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
+        }
 
         return (
             <div>
@@ -52,9 +71,11 @@ class WhiskyDisplay extends React.Component {
 }
 
 
+
 function mapStateToProps(state) {
+    console.log(state);
     return {
-        whiskys: state.whiskys
+        products: state.whiskys.products
     };
 }
 
