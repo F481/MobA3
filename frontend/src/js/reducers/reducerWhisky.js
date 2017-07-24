@@ -1,6 +1,32 @@
+import {INIT_FETCH_PRODUCTS, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR} from '../actions/productActions'
+
+const INITIAL_STATE = {products: [], error: null, fetching: false, fetched: false};
+
+export default function reducer (state = INITIAL_STATE, action) {
+    let error;
+    switch(action.type) {
+        case INIT_FETCH_PRODUCTS: {
+            return {...state,products: [], error: null, fetching: true, fetched: false};
+        }
+        case FETCH_PRODUCTS_SUCCESS: {
+            return {...state, products: action.payload, error: null, fetching: false, fetched: true};
+        }
+        case FETCH_PRODUCTS_ERROR: {
+            error = action.payload || {message: action.payload.message};
+            return {...state, products: [], error: error, fetching:false, fetched:false };
+        }
+    }
+    return state;
+}
+
+
+
 
 // Testweise hardcode datensätze
-export default function () {
+
+
+
+/*export default function () {
     return [
         {
             id: 1,
@@ -75,4 +101,4 @@ export default function () {
             amount: 10
         }
     ]
-}
+}*/

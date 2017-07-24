@@ -10,9 +10,10 @@ import Layout from "./pages/layout";
 import Search from "./pages/search";
 import Cashout from "./pages/cashout";
 import allReducers from "./reducers/index";
-import {createStore} from "redux";
+import store from "./store";
+//import {createStore} from "redux";
 
-const store = createStore(allReducers);
+//const store = createStore(allReducers);
 const app = document.getElementById('app');
 
 ReactDOM.render(
