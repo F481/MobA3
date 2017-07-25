@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {doLogin} from '../actions/loginActions'
+import {doRegistry} from '../actions/registryActions'
 import WhiskyInBasket from "../components/whiskyInBasket";
 
 class Login extends React.Component {
@@ -44,7 +45,7 @@ class Login extends React.Component {
         console.log("E-Mail: " + this.state.email);
         console.log("Name: " + this.state.name);
         console.log("Passwort: " + this.state.password);
-        var registrydata = JSON.stringify({email: this.state.email, name: this.state.name, password: this.state.password});
+        var registrydata = JSON.stringify({email: this.state.email,password: this.state.password, name: this.state.name });
         console.log(registrydata);
         this.props.dispatch(doRegistry(registrydata));
     }
