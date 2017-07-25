@@ -30,7 +30,7 @@ class Admin extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        authenticated: state.authenticated
+        authenticated: state.userData.authenticated
     };
 }
 

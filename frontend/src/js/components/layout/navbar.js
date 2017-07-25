@@ -1,7 +1,8 @@
 import React from "react";
 import {IndexLink, Link} from "react-router";
+import {connect} from "react-redux";
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -41,6 +42,8 @@ export default class Navbar extends React.Component {
             marginRight: '-220px'
         };
 
+        var isAuthenticated = this.props.authenticated;
+
         return (
             <div class="wqheader">
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style={navbarStyle}>
@@ -66,7 +69,8 @@ export default class Navbar extends React.Component {
                                     <IndexLink to="all" onClick={this.toggleCollapse.bind(this)}>Alle</IndexLink>
                                 </li>
                                 <li class={scotchClass}>
-                                    <IndexLink to="scotch" onClick={this.toggleCollapse.bind(this)}>Scotch Whisky</IndexLink>
+                                    <IndexLink to="scotch" onClick={this.toggleCollapse.bind(this)}>Scotch
+                                        Whisky</IndexLink>
                                 </li>
                                 <li class={searchClass}>
                                     <Link to="search" onClick={this.toggleCollapse.bind(this)}>Suche</Link>
@@ -77,9 +81,13 @@ export default class Navbar extends React.Component {
                                 <li class={loginClass}>
                                     <Link to="login" onClick={this.toggleCollapse.bind(this)}>Login ...</Link>
                                 </li>
-                                <li class={adminClass}>
-                                    <Link to="admin" onClick={this.toggleCollapse.bind(this)}>Administration</Link>
-                                </li>
+                                {isAuthenticated
+                                    ? <li class={adminClass}>
+                                        <Link to="admin" onClick={this.toggleCollapse.bind(this)}>Administration</Link>
+                                    </li>
+                                    : null
+                                }
+
                             </ul>
                         </div>
                     </div>
@@ -88,3 +96,11 @@ export default class Navbar extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        authenticated: state.userData.authenticated
+    };
+}
+
+export default connect(mapStateToProps)(Navbar);
