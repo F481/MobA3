@@ -40,6 +40,15 @@ class Login extends React.Component {
         this.props.dispatch(doLogin(logindata));
     }
 
+    handleRegistry = () => {
+        console.log("E-Mail: " + this.state.email);
+        console.log("Name: " + this.state.name);
+        console.log("Passwort: " + this.state.password);
+        var registrydata = JSON.stringify({email: this.state.email, name: this.state.name, password: this.state.password});
+        console.log(registrydata);
+        this.props.dispatch(doRegistry(registrydata));
+    }
+
     render() {
 
         const marginLarge = {
@@ -52,6 +61,7 @@ class Login extends React.Component {
                 <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameChange} /> <br/><hr/>
                 <input type="password" name="password" placeholder="Passwort" value={this.state.password} onChange={this.handlePasswordChange} /> <br/><hr/>
                 <button type="button" onClick={this.handleLogin}>Login</button>
+                <button type="button" onClick={this.handleRegistry}>Registrieren</button>
             </form>
         );
     }
