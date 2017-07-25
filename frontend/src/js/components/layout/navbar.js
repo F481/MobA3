@@ -22,6 +22,7 @@ export default class Navbar extends React.Component {
         const scotchClass = location.pathname.match(/^\/scotch/) ? "active" : "";
         const searchClass = location.pathname.match(/^\/search/) ? "active" : "";
         const cashoutClass = location.pathname.match(/^\/cashout/) ? "active" : "";
+        const loginClass = location.pathname.match(/^\/login/) ? "active" : "";
         const navClass = collapsed ? "collapse" : "";
 
         const navbarStyle = {
@@ -71,6 +72,9 @@ export default class Navbar extends React.Component {
                                 </li>
                                 <li class={cashoutClass}>
                                     <Link to="cashout" onClick={this.toggleCollapse.bind(this)}>Kasse ...</Link>
+                                </li>
+                                <li class={loginClass}>
+                                    <Link to="login" onClick={this.toggleCollapse.bind(this)}>Login ...</Link>
                                 </li>
                             </ul>
                         </div>
