@@ -19,10 +19,10 @@ class Basket extends React.Component {
 
         var more = "";
         if (Whiskys.length > maxAmountShown) {
-            Whiskys.splice(maxAmountShown);
             more = "Und "
-            more += (Whiskys.length - maxAmountShown).toString();
+            more += (Whiskys.length - maxAmountShown);
             more += " weitere ...";
+            Whiskys.splice(maxAmountShown);
             console.log(Whiskys.length - maxAmountShown);
         }
 
