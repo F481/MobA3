@@ -63,7 +63,6 @@ router.put('/:id', function (req, res, next) {
     res.send("ok");
 });
 
-
 router.delete('/:id', function (req, res, next) {
     var id = req.params.id;
 
