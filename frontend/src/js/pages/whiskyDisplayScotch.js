@@ -28,8 +28,6 @@ class WhiskyDisplay extends React.Component {
             Whiskys = this.props.products.products.filter(whisky => whisky.category == "Scotch Highland").map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
         }
 
-        //TODO whisky-reducer.filter(kategory=scotch).map((etc)=>Whisky);
-
         return (
             <div>
                 <h1>Scotch Whiskys:</h1>
