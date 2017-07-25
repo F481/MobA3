@@ -3,7 +3,6 @@ export const DO_LOGIN ='DO_LOGIN';
 export const LOGIN_SUCCESS ='LOGIN_SUCCESS';
 export const LOGIN_ERROR='LOGIN_ERROR';
 const URL = 'http://localhost:3000/auth/login';
-var data = new FormData();
 
 export function initLogin(){
     return {
@@ -12,8 +11,6 @@ export function initLogin(){
 }
 
 export function doLogin() {
-    data.append('email','ferdi@wasd.de');
-    data.append('password', 'wasd0815');
     return (dispatch) => {
         dispatch(initLogin());
         return fetch(URL, {
