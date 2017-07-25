@@ -57,6 +57,8 @@ class Login extends React.Component {
         };
 
         return(
+            <div>
+        <h1>Login</h1>
             <form style={marginLarge}>
                 <input type="text" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} /> <br/><hr/>
                 <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameChange} /> <br/><hr/>
@@ -64,6 +66,7 @@ class Login extends React.Component {
                 <button type="button" onClick={this.handleLogin}>Login</button>
                 <button type="button" onClick={this.handleRegistry}>Registrieren</button>
             </form>
+            </div>
         );
     }
 }
