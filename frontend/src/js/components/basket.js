@@ -9,7 +9,7 @@ class Basket extends React.Component {
         var Whiskys = [];
         if (this.props.basket[0] != null) {
             console.log("basket > 0");
-            Whiskys = this.props.basket.map((whisky) => <WhiskyInBasket key={whisky.id} whisky={whisky}/>);
+            Whiskys = this.props.basket.map((whisky) => <WhiskyInBasket key={whisky._id} whisky={whisky}/>);
         } else {
             console.log("basket < 0");
             console.log(this.props.basket.length)
