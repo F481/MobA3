@@ -55,8 +55,8 @@ var authCheckMiddleware = require('./middleware/auth-check');
 // restrict access on modifying database without login
 // products get should be accessible without login
 app.post('/products', authCheckMiddleware);
-app.put('/products', authCheckMiddleware);
-app.delete('/products', authCheckMiddleware);
+app.put('/products/:id', authCheckMiddleware);
+app.delete('/products/:id', authCheckMiddleware);
 
 app.use('/', index);
 app.use('/users', users);
