@@ -50,9 +50,13 @@ passport.use('local-login', localLoginStrategy);
 
 // pass the authenticaion checker middleware
 var authCheckMiddleware = require('./middleware/auth-check');
-// FIXME uncomment auth check
-// TODO extend
-//app.use('/products', authCheckMiddleware);
+
+// TODO check if this is a admin user
+// restrict access on modifying database without login
+// products get should be accessible without login
+app.post('/products', authCheckMiddleware);
+app.put('/products', authCheckMiddleware);
+app.delete('/products', authCheckMiddleware);
 
 app.use('/', index);
 app.use('/users', users);
