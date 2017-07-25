@@ -22,13 +22,13 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={Layout}>
-                <IndexRoute component={Home}></IndexRoute>
-                <Route path="all(/:whiskey)" name="all" component={WhiskyDisplayAll}></Route>
-                <Route path="scotch(/:whiskey)" name="scotch" component={WhiskyDisplayScotch}></Route>
-                <Route path="search" name="search" component={Search}></Route>
-                <Route path="cashout" name="cashout" component={Cashout}></Route>
-                <Route path="login" name="login" component={Login}></Route>
-                <Route path="admin" name="admin" component={Admin}></Route>
+                <IndexRoute component={Home}/>
+                <Route path="all(/:whiskey)" name="all" component={WhiskyDisplayAll}/>
+                <Route path="scotch(/:whiskey)" name="scotch" component={WhiskyDisplayScotch}/>
+                <Route path="search" name="search" component={Search}/>
+                <Route path="cashout" name="cashout" component={Cashout}/>
+                <Route path="login" name="login" component={Login}/>
+                <Route path="admin" name="admin" component={Admin}/>
             </Route>
         </Router>
     </Provider>,
