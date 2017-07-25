@@ -3,98 +3,54 @@ import {connect} from 'react-redux';
 
 import WhiskyInBasket from "../components/whiskyInBasket";
 
-// Create component for button
-class Button extends React.Component {
-    render() {
-        return (
-            <fieldset>
-                <button
-                    type={this.props.type || 'button'}
-                    value={this.props.value || null}
-                >
-                    {this.props.text}
-                </button>
-            </fieldset>
-        );
-    }
-}
-
-// Create component for label
-class Label extends React.Component {
-    render() {
-        if (this.props.hasLabel === 'true') {
-            return <label htmlFor={this.props.htmlFor}>{this.props.label}</label>
-        }
-    }
-}
-
-// Create component for input
-class Input extends React.Component {
-    render() {
-        return (
-            <fieldset>
-                <Label
-                    hasLabel={this.props.hasLabel}
-                    htmlFor={this.props.htmlFor}
-                    label={this.props.label}
-                />
-                <input
-                    id={this.props.htmlFor}
-                    max={this.props.max || null}
-                    min={this.props.min || null}
-                    name={this.props.name || null}
-                    placeholder={this.props.placeholder || null}
-                    required={this.props.required || null}
-                    step={this.props.step || null}
-                    type={this.props.type || 'text'}
-                />
-            </fieldset>
-        );
-    }
-}
-
-const marginLarge = {
-    marginTop: '100px'
-};
-
-
 class Login extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state ={
+            email: null,
+            name: null,
+            password: null
+        }
+
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    }
+
+    handleEmailChange = function(event) {
+        this.setState({email: event.target.value});
+    };
+
+    handleNameChange = function(event) {
+        this.setState({name: event.target.value});
+    };
+
+
+    handlePasswordChange = function(event) {
+        this.setState({password: event.target.value});
+    };
+
+    handleLogin = () => {
+        console.log("E-Mail: " + this.state.email);
+        console.log("Name: " + this.state.name);
+        console.log("Passwort: " + this.state.password);
+    }
+
     render() {
-        return (
-            <div>
-                <form method='' action='' style={marginLarge}>
-                    <Input
-                        hasLabel='true'
-                        htmlFor='emailInput'
-                        label='E-Mail:  '
-                        required='true'
-                        type='email'
-                    />
-                    <hr/>
-                    <Input
-                        hasLabel='true'
-                        htmlFor='userInput'
-                        label='Name:  '
-                        required='true'
-                        type='text'
-                    />
-                    <hr/>
-                    <Input
-                        hasLabel='true'
-                        htmlFor='passwordInput'
-                        label='Passwort:  '
-                        required='true'
-                        type='password'
-                    />
-                    <hr/>
-                    <Button
-                        type='submit'
-                        value='submit'
-                        text='Login'
-                    />
-                </form>
-            </div>
-        )
+
+        const marginLarge = {
+            marginTop: '100px'
+        };
+
+        return(
+            <form style={marginLarge}>
+                <input type="text" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange}>E-Mail:</input> <br/><hr/>
+                <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameChange}>Name: </input> <br/><hr/>
+                <input type="password" name="password" placeholder="Passwort" value={this.state.password} onChange={this.handlePasswordChange}>Passwort:</input>
+                <button type="button" onClick={this.handleLogin}>Login</button>
+            </form>
+        );
     }
 }
 

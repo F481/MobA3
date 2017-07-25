@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {fetchProducts} from '../actions/productActions'
+import {doLogin} from '../actions/loginActions';
 import Whisky from "../components/whisky";
 var Whiskys;
 @connect((store) => {
@@ -13,6 +14,9 @@ var Whiskys;
 class WhiskyDisplay extends React.Component {
     componentWillMount() {
         this.props.dispatch(fetchProducts());
+        console.log("shpud fetch login data");
+        this.props.dispatch(doLogin());
+
 
     }
 
