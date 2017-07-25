@@ -10,7 +10,7 @@ class WhiskyInBasket extends React.Component {
     return (
       <div>
         <h4>{whisky.basketAmount}x {whisky.name}</h4>
-        <p>{whisky.price * whisky.basketAmount} Euro</p>
+        <p>{(Math.round((whisky.price * whisky.basketAmount) * 100)/100)} Euro</p>
         <a class="btn btn-default" onClick={() => this.props.deleteWhiskyFromBasket(whisky)}>Entfernen ...</a>
       </div>
     );

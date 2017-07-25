@@ -4,17 +4,21 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 class Whisky extends React.Component {
-  render() {
-    const {whisky} = this.props;
+    render() {
+        const {whisky} = this.props;
 
-    return (
-      <div class="col-md-9">
-        <h4>{whisky.name}</h4>
-        <p>{whisky.description}</p>
-        <a class="btn btn-default" onClick={() => this.props.addWhiskyToBasket(whisky)}>In Warenkorb</a>
-      </div>
-    );
-  }
+        return (
+            <div class="col-md-9">
+                <hr/>
+                <h3>{whisky.name}</h3>
+                <img src={"/img/" + whisky.name + ".png"} height="300"/>
+                <hr/>
+                <p>{whisky.description}</p>
+                <h5>{whisky.price} €</h5>
+                <a class="btn btn-default" onClick={() => this.props.addWhiskyToBasket(whisky)}>In Warenkorb</a>
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
@@ -23,7 +27,7 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch){
+function matchDispatchToProps(dispatch) {
     return bindActionCreators({addWhiskyToBasket: addWhiskyToBasket}, dispatch);
 }
 

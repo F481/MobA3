@@ -13,7 +13,7 @@ class Cashout extends React.Component {
         }
 
         var total = 0;
-        this.props.basket.map(whisky => total += Math.round(whisky.price * whisky.basketAmount));
+        this.props.basket.map(whisky => total += (Math.round((whisky.price * whisky.basketAmount) * 100)/100));
 
         if (Whiskys.length > 0) {
             return (

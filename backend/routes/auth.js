@@ -76,7 +76,6 @@ function validateLoginForm(payload) {
 }
 
 router.post('/signup', (req, res, next) => {
-    console.log("signuuuuuup");
     const validationResult = validateSignupForm(req.body);
     if (!validationResult.success) {
         return res.status(400).json({
@@ -124,7 +123,6 @@ router.post('/login', (req, res, next) => {
         });
     }
 
-
     return passport.authenticate('local-login', (err, token, userData) => {
         if (err) {
             if (err.name === 'IncorrectCredentialsError') {
@@ -140,7 +138,6 @@ router.post('/login', (req, res, next) => {
             });
         }
 
-
         return res.json({
             success: true,
             message: 'You have successfully logged in!',
@@ -149,6 +146,5 @@ router.post('/login', (req, res, next) => {
         });
     })(req, res, next);
 });
-
 
 module.exports = router;

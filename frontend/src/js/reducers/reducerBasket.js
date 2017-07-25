@@ -6,11 +6,11 @@ export default function (state = {
         case 'WHISKY_ADDED':
             console.log("whiskey added function fired");
             var whiskyIndex = -1;
-            whiskyIndex = state.findIndex(whisky => whisky.whiskyId == action.payload.id);
+            whiskyIndex = state.findIndex(whisky => whisky.whiskyId == action.payload._id);
             if (whiskyIndex == -1) {
                 return [...state, {
                     id: action.id,
-                    whiskyId: action.payload.id,
+                    whiskyId: action.payload._id,
                     name: action.payload.name,
                     price: action.payload.price,
                     amount: action.payload.amount,
