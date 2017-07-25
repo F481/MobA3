@@ -73,6 +73,14 @@ class Login extends React.Component {
                     <hr/>
                     <Input
                         hasLabel='true'
+                        htmlFor='userInput'
+                        label='Name:  '
+                        required='true'
+                        type='text'
+                    />
+                    <hr/>
+                    <Input
+                        hasLabel='true'
                         htmlFor='passwordInput'
                         label='Passwort:  '
                         required='true'
