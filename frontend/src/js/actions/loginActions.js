@@ -3,6 +3,7 @@ export const DO_LOGIN ='DO_LOGIN';
 export const LOGIN_SUCCESS ='LOGIN_SUCCESS';
 export const LOGIN_ERROR='LOGIN_ERROR';
 const URL = 'http://localhost:3000/auth/login';
+var data = new FormData();
 
 export function initLogin(){
     return {
@@ -10,7 +11,7 @@ export function initLogin(){
     }
 }
 
-export function doLogin() {
+export function doLogin(logindata) {
     return (dispatch) => {
         dispatch(initLogin());
         return fetch(URL, {
@@ -18,13 +19,9 @@ export function doLogin() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                email: 'ferdi@wasd.de',
-                password: 'Wasd0815',
-            })
+            body: logindata
         })
             .then(response => {
-                console.log(data);
                 if (response.status >= 200 && response.status < 300) {
                     console.log("fetching done and response ok for login" + response.status);
                     response.json()

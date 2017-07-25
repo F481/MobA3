@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {doLogin} from '../actions/loginActions'
 import WhiskyInBasket from "../components/whiskyInBasket";
 
 class Login extends React.Component {
@@ -35,6 +35,9 @@ class Login extends React.Component {
         console.log("E-Mail: " + this.state.email);
         console.log("Name: " + this.state.name);
         console.log("Passwort: " + this.state.password);
+        var logindata = JSON.stringify({email: this.state.email, password: this.state.password});
+        console.log(logindata);
+        this.props.dispatch(doLogin(logindata));
     }
 
     render() {
@@ -56,7 +59,8 @@ class Login extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        basket: state.basket
+        basket: state.basket,
+        userData: state.userData.userData
     };
 }
 

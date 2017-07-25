@@ -14,10 +14,6 @@ var Whiskys;
 class WhiskyDisplay extends React.Component {
     componentWillMount() {
         this.props.dispatch(fetchProducts());
-        console.log("shpud fetch login data");
-        this.props.dispatch(doLogin());
-
-
     }
 
     render() {
