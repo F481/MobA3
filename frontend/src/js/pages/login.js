@@ -48,9 +48,9 @@ class Login extends React.Component {
 
         return(
             <form style={marginLarge}>
-                <input type="text" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange}>E-Mail:</input> <br/><hr/>
-                <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameChange}>Name: </input> <br/><hr/>
-                <input type="password" name="password" placeholder="Passwort" value={this.state.password} onChange={this.handlePasswordChange}>Passwort:</input>
+                <input type="text" name="email" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} /> <br/><hr/>
+                <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameChange} /> <br/><hr/>
+                <input type="password" name="password" placeholder="Passwort" value={this.state.password} onChange={this.handlePasswordChange} /> <br/><hr/>
                 <button type="button" onClick={this.handleLogin}>Login</button>
             </form>
         );

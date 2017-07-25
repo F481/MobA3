@@ -10,6 +10,7 @@ import Layout from "./pages/layout";
 import Search from "./pages/search";
 import Cashout from "./pages/cashout";
 import Login from "./pages/login";
+import Admin from "./pages/admin";
 import allReducers from "./reducers/index";
 import store from "./store";
 //import {createStore} from "redux";
@@ -27,6 +28,7 @@ ReactDOM.render(
                 <Route path="search" name="search" component={Search}></Route>
                 <Route path="cashout" name="cashout" component={Cashout}></Route>
                 <Route path="login" name="login" component={Login}></Route>
+                <Route path="admin" name="admin" component={Admin}></Route>
             </Route>
         </Router>
     </Provider>,
