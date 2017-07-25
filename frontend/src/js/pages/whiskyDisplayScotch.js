@@ -2,7 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchProducts} from '../actions/productActions'
 import Whisky from "../components/whisky";
+
 var Whiskys;
+
 @connect((store) => {
     console.log("@connectStore_WhiskyAll");
     return {
@@ -15,21 +17,22 @@ class WhiskyDisplay extends React.Component {
     componentWillMount() {
         this.props.dispatch(fetchProducts());
     }
+
     render() {
 
-        if(this.props.products.products == undefined){
+        if (this.props.products.products == undefined) {
             console.log(" Props.products undefined");
-        }else{
-            console.log("next Props of WhiskyallSide");
+        } else {
+            console.log("next Props of WhiskyScotchSide");
             console.log(this.props.products.products);
-            Whiskys =this.props.products.products.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
+            Whiskys = this.props.products.products.filter(whisky => whisky.category == "Scotch Highland").map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
         }
 
         //TODO whisky-reducer.filter(kategory=scotch).map((etc)=>Whisky);
 
         return (
             <div>
-                <h1>Scotch Whiskys (react stream/filter/map muss ich mir nochmal anschauen, daher wieder alle:)</h1>
+                <h1>Scotch Whiskys:</h1>
                 <div class="row">{Whiskys}</div>
             </div>
         );
