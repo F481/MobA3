@@ -61,9 +61,9 @@ class Navbar extends React.Component {
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)}>
                                 <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+                                <span class="icon-bar"/>
+                                <span class="icon-bar"/>
+                                <span class="icon-bar"/>
                             </button>
                             <a class="navbar-brand" rel="home" href="#" style={navbarBrandMargin}>
                                 <img src="/img/wq_logo_big.png" style={navbarLogoStyle} alt="logo">
