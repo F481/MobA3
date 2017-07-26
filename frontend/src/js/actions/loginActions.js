@@ -2,7 +2,7 @@ export const INIT_LOGIN ='INIT_LOGIN';
 export const DO_LOGIN ='DO_LOGIN';
 export const LOGIN_SUCCESS ='LOGIN_SUCCESS';
 export const LOGIN_ERROR='LOGIN_ERROR';
-const URL = 'http://localhost:3000/auth/login';
+const URL = '/auth/login';
 
 export function initLogin(){
     return {

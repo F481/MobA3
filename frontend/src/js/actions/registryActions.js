@@ -2,7 +2,7 @@ export const INIT_REGISTRY ='INIT_REGISTRY';
 export const DO_REGISTRY ='DO_REGISTRY';
 export const REGISTRY_SUCCESS ='REGISTRY_SUCCESS';
 export const REGISTRY_ERROR='REGISTRY_ERROR';
-const URL = 'http://localhost:3000/auth/signup';
+const URL = '/auth/signup';
 
 
 export function initRegistry(){

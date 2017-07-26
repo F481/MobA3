@@ -3,7 +3,7 @@ export const INIT_FETCH_PRODUCTS = 'INIT_FETCH_PRODUCTS';
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR';
-const URL = 'http://localhost:3000/products';
+const URL = '/products';
 
 export function initFetchProducts(){
     return {
