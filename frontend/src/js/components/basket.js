@@ -6,6 +6,10 @@ class Basket extends React.Component {
 
     render() {
 
+        /**
+         * Checks if basket contains any elements, and maps them to whiskyInBasket.js objects.
+         * @type {Array}
+         */
         var Whiskys = [];
         if (this.props.basket[0] != null) {
             console.log("basket > 0");
@@ -15,8 +19,11 @@ class Basket extends React.Component {
             console.log(this.props.basket.length)
         }
 
+        /**
+         * Cuts of more than "maxAmountShown" whiskys, so the basket page will not have to scroll.
+         * @type {number}
+         */
         const maxAmountShown = 5;
-
         var more = "";
         if (Whiskys.length > maxAmountShown) {
             more = "Und "
@@ -26,6 +33,9 @@ class Basket extends React.Component {
             console.log(Whiskys.length - maxAmountShown);
         }
 
+        /**
+         * Render all whiskyInBasket.js objects.
+         */
         return (
             <div class='col-lg-3'>
                 <h1>Warenkorb:</h1>

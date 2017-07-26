@@ -12,6 +12,10 @@ export function initLogin(){
 }
 
 export function doLogin(logindata) {
+    /**
+     * Function sends GET request to backend, to log in user.
+     * Waits for response and fires success / error actions.
+     */
     return (dispatch) => {
         dispatch(initLogin());
         return fetch(URL, {

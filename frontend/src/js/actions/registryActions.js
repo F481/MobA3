@@ -12,6 +12,11 @@ export function initRegistry(){
 }
 
 export function doRegistry(registrydata) {
+
+    /**
+     * Function sends POST request to backend, to check in user for registry.
+     * Waits for response and fires success / error actions.
+     */
     return (dispatch) => {
         dispatch(initRegistry());
         return fetch(URL, {

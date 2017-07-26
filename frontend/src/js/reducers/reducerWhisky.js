@@ -5,12 +5,25 @@ const INITIAL_STATE = {products: [], error: null, fetching: false, fetched: fals
 export default function reducer (state = INITIAL_STATE, action) {
     let error;
     switch(action.type) {
+
+        /**
+         * Action is fired upon GET request on whisky data. Sets state accordingly.
+         */
         case INIT_FETCH_PRODUCTS: {
             return {...state,products: [], error: null, fetching: true, fetched: false};
         }
+
+        /**
+         * Action is fired, when product list has been successfully returned.
+         * Product list is saved in products state var
+         */
         case FETCH_PRODUCTS_SUCCESS: {
             return {...state, products: action.payload, error: null, fetching: false, fetched: true};
         }
+
+        /**
+         * Action fired in case of an error occurring.
+         */
         case FETCH_PRODUCTS_ERROR: {
             error = action.payload || {message: action.payload.message};
             return {...state, products: [], error: error, fetching:false, fetched:false };

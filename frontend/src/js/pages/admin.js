@@ -8,6 +8,10 @@ class Admin extends React.Component {
             marginTop: '100px'
         };
 
+        /**
+         * Dummy Admin page.
+         * Currently only checks for authentication and shows token, or placeholder if not authenticated.
+         */
         if (this.props.authenticated === true) {
             return (
                 <div style={marginMid}>

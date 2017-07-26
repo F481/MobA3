@@ -7,6 +7,9 @@ class Whisky extends React.Component {
     render() {
         const {whisky} = this.props;
 
+        /**
+         * Displays data of current whisky. Picture with same name as whisky data set is displayed.
+         */
         return (
             <div class="col-md-9">
                 <hr/>

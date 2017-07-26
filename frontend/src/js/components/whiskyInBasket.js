@@ -7,6 +7,9 @@ class WhiskyInBasket extends React.Component {
   render() {
     const {whisky} = this.props;
 
+      /**
+       * Displays whisky data like whisky.js object, but in "basket friendly" format without description or picture.
+       */
     return (
       <div>
         <h4>{whisky.basketAmount}x {whisky.name}</h4>

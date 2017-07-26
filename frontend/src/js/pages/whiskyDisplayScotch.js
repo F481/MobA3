@@ -20,6 +20,10 @@ class WhiskyDisplay extends React.Component {
 
     render() {
 
+        /**
+         * check for whisky data, if present,
+         * Filter only for "Scotch Highland" whisky and map to whisky.js objects.
+         */
         if (this.props.products.products === undefined) {
             console.log(" Props.products undefined");
         } else {
@@ -28,6 +32,9 @@ class WhiskyDisplay extends React.Component {
             Whiskys = this.props.products.products.filter(whisky => whisky.category === "Scotch Highland").map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
         }
 
+        /**
+         * Display all whisky.js objects
+         */
         return (
             <div>
                 <h1>Scotch Whiskys:</h1>

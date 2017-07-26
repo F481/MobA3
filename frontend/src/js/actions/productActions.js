@@ -11,6 +11,12 @@ export function initFetchProducts(){
     }
 }
 export function fetchProducts() {
+
+    /**
+     * Sends GET request to retrieve whisky data.
+     * Response JSON is deliverd to action which will fill reducer with data.
+     * Handles error in case of no respone or faulty response.
+     */
     return (dispatch) => {
         dispatch(initFetchProducts());
         return fetch(URL,{

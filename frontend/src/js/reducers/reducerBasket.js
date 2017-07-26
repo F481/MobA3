@@ -2,6 +2,11 @@
 export default function (state = {
     basket: [],
 }, action) {
+
+    /**
+     *
+     *
+     */
     switch (action.type) {
         case 'WHISKY_ADDED':
             console.log("whiskey added function fired");

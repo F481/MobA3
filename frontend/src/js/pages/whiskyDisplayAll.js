@@ -12,21 +12,19 @@ var Whiskys;
 })
 
 class WhiskyDisplay extends React.Component {
+
+    /**
+     * Fetches whisky data, reducerWhisky.js will contain data upon successful return
+     */
     componentWillMount() {
         this.props.dispatch(fetchProducts());
     }
 
     render() {
-        /* DEBUG
-      const Whiskys = this.props.whiskys.map((whisky) => {
-          return (
-              <li key={whisky.id}>
-                  {whisky.name}: {whisky.description}
-              </li>
-          );
-      }); */
 
-
+        /**
+         * check for whisky data, if present, map whisky data to whisky.js objects.
+         */
         if(this.props.products.products === undefined){
             console.log(" Props.products undefined");
         }else{
@@ -35,38 +33,15 @@ class WhiskyDisplay extends React.Component {
             Whiskys =this.props.products.products.map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
         }
 
+        /**
+         * Display all whisky.js objects
+         */
         return (
             <div>
                 <h1>Alle Whiskys:</h1>
                 <div class="row">{Whiskys}</div>
             </div>
         );
-
-        /* OLD
-        const adText = [
-          "Ad spot #1",
-          "Ad spot #2",
-          "Ad spot #3",
-          "Ad spot #4",
-          "Ad spot #5",
-        ];
-
-        const randomAd = adText[Math.round( Math.random() * (adText.length-1) )];
-        console.log("featured");
-        return (
-          <div>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="well text-center">
-                  {randomAd}
-                </div>
-              </div>
-            </div>
-
-            <div class="row">{Whiskys}</div>
-          </div>
-        );
-         */
     }
 }
 

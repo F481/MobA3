@@ -6,6 +6,10 @@ import WhiskyInBasket from "../components/whiskyInBasket";
 
 class Login extends React.Component {
 
+    /**
+     * Initialize state and "Handle" functions
+     * @param props
+     */
     constructor(props) {
         super(props)
         this.state ={
@@ -19,6 +23,11 @@ class Login extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
+    /**
+     * "Handle" functions take edit event and set state to current user input.
+     * @param event
+     */
+
     handleEmailChange = function(event) {
         this.setState({email: event.target.value});
     };
@@ -27,11 +36,15 @@ class Login extends React.Component {
         this.setState({name: event.target.value});
     };
 
-
     handlePasswordChange = function(event) {
         this.setState({password: event.target.value});
     };
 
+
+
+    /**
+     * Fire doLogin() action, with JSON parameter containing email and password information
+     */
     handleLogin = () => {
         console.log("E-Mail: " + this.state.email);
         console.log("Name: " + this.state.name);
@@ -41,6 +54,9 @@ class Login extends React.Component {
         this.props.dispatch(doLogin(logindata));
     }
 
+    /**
+     * Fire doRegistry() action, with JSON parameter containing email, name and password information
+     */
     handleRegistry = () => {
         console.log("E-Mail: " + this.state.email);
         console.log("Name: " + this.state.name);
@@ -56,6 +72,9 @@ class Login extends React.Component {
             marginTop: '100px'
         };
 
+        /**
+         * Display login form
+         */
         return(
             <div>
         <h1>Login</h1>

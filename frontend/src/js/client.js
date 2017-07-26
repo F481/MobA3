@@ -11,13 +11,15 @@ import Search from "./pages/search";
 import Cashout from "./pages/cashout";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
-import allReducers from "./reducers/index";
 import store from "./store";
-//import {createStore} from "redux";
 
 //const store = createStore(allReducers);
 const app = document.getElementById('app');
 
+/**
+ * React dom with all routes. Layout is specified in /pages/layout.js, navigation in
+ * /components/layout/navbar.js
+ */
 ReactDOM.render(
     <Provider store={store}>
         <Router history={hashHistory}>
@@ -33,18 +35,3 @@ ReactDOM.render(
         </Router>
     </Provider>,
     app);
-
-/*
-ReactDOM.render(
-    <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path="/" component={Layout}>
-                <IndexRoute component={WhiskyDisplay}></IndexRoute>
-                <Route path="archives(/:article)" name="archives" component={Archives}></Route>
-                <Route path="settings" name="settings" component={Suche}></Route>
-            </Route>
-        </Router>
-    </Provider>, document.getElementById('root'),
-    app);
-
- */

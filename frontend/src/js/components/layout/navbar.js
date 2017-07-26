@@ -10,12 +10,19 @@ class Navbar extends React.Component {
         };
     }
 
+    /**
+     * Toggles collapsing navbar on mobile devices
+     */
     toggleCollapse() {
         const collapsed = !this.state.collapsed;
         this.setState({collapsed});
     }
 
     render() {
+
+        /**
+         * Routes of the navbar elements
+         */
         const {location} = this.props;
         const {collapsed} = this.state;
         const homeClass = location.pathname === "/" ? "active" : "";
@@ -44,6 +51,9 @@ class Navbar extends React.Component {
 
         var isAuthenticated = this.props.authenticated;
 
+        /**
+         * Displays navbar with logo, "admin area" only displayed on authentication.
+         */
         return (
             <div class="wqheader">
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style={navbarStyle}>

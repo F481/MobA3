@@ -1,7 +1,5 @@
 import React from "react";
 
-import Whisky from "../components/whisky";
-
 export default class Archives extends React.Component {
   render() {
     return (
