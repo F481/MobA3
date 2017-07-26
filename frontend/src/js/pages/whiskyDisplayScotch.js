@@ -20,12 +20,12 @@ class WhiskyDisplay extends React.Component {
 
     render() {
 
-        if (this.props.products.products == undefined) {
+        if (this.props.products.products === undefined) {
             console.log(" Props.products undefined");
         } else {
             console.log("next Props of WhiskyScotchSide");
             console.log(this.props.products.products);
-            Whiskys = this.props.products.products.filter(whisky => whisky.category == "Scotch Highland").map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
+            Whiskys = this.props.products.products.filter(whisky => whisky.category === "Scotch Highland").map((whisky) => <Whisky key={whisky.id} whisky={whisky}/>);
         }
 
         return (

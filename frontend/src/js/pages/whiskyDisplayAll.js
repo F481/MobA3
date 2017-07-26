@@ -27,7 +27,7 @@ class WhiskyDisplay extends React.Component {
       }); */
 
 
-        if(this.props.products.products == undefined){
+        if(this.props.products.products === undefined){
             console.log(" Props.products undefined");
         }else{
             console.log("next Props of WhiskyallSide");
