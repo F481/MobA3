@@ -3,7 +3,6 @@ export const DO_LOGIN ='DO_LOGIN';
 export const LOGIN_SUCCESS ='LOGIN_SUCCESS';
 export const LOGIN_ERROR='LOGIN_ERROR';
 const URL = 'http://localhost:3000/auth/login';
-var data = new FormData();
 
 export function initLogin(){
     return {
@@ -13,7 +12,7 @@ export function initLogin(){
 
 export function doLogin(logindata) {
     /**
-     * Function sends GET request to backend, to log in user.
+     * Function sends POST request to backend, to log in user.
      * Waits for response and fires success / error actions.
      */
     return (dispatch) => {
