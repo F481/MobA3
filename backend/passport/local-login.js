@@ -4,13 +4,10 @@ var PassportLocalStrategy = require('passport-local').Strategy;
 var config = require('../config');
 
 
-/**
- * Return the Passport Local Strategy object.
- */
+// passport local strategy for login
 module.exports = new PassportLocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
-    session: false,
     passReqToCallback: true
 }, (req, email, password, done) => {
     const userData = {
@@ -24,6 +21,7 @@ module.exports = new PassportLocalStrategy({
             return done(err);
         }
 
+        // email not found
         if (!user) {
             const error = new Error('Incorrect email or password');
             error.name = 'IncorrectCredentialsError';

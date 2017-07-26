@@ -147,4 +147,17 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+// TODO added logout function
+/*
+router.get('/logout', function (req, res) {
+    if (req.user) {
+        req.logout();
+        req.session.destroy();
+
+        return res.send("ok");
+    }
+    res.send('{ "err": "User was not logged in"}');
+});
+*/
+
 module.exports = router;

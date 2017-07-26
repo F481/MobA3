@@ -4,18 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var express = require('express');
 var passport = require('passport');
 // CORS for Access-Controll-Allow
 var cors = require('cors');
+
+// TODO remove this when frontend is delivered by nodes public folder
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     next();
-}
+};
 const config = require('./config');
 // connect to the database and load models
 require('./models').connect(config.dbUri);
@@ -43,7 +46,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// TODO we have to implement the serialize and deserialize functions of the user, so passport can handle login sessions correctly
+app.use(session({ secret: 'ifo3-as79!L7uz', maxAge: 60000 }));
 app.use(passport.initialize());
+app.use(passport.session());
 
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);

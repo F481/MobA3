@@ -55,6 +55,7 @@ router.put('/:id', function (req, res, next) {
         collection.updateOne(
             { "_id" : mongodb.ObjectId(id) },
             { $set: product },
+            // if upsert true and no records match the filter, insert a new record
             { upsert: true }
         );
     } catch (e) {
@@ -69,6 +70,8 @@ router.delete('/:id', function (req, res, next) {
     if (!mongodb.ObjectId.isValid(id)) return res.send('{ "err": "Given id is not of matching to an ObjectId of MongoDB" }');
 
     collection.deleteOne({"_id": mongodb.ObjectId(id)}, function (error, collection) {
+        // note that no error is returned when the id was not found!
+        // to get that we have to use the deletedCount below
         if (error) return res.send(error);
 
         // here we are able to check if a document was deleted or not

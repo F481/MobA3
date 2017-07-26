@@ -2,9 +2,7 @@ var User = require('mongoose').model('User');
 var PassportLocalStrategy = require('passport-local').Strategy;
 
 
-/**
- * Return the Passport Local Strategy object.
- */
+// Passport local strategy for signup
 module.exports = new PassportLocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
