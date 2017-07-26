@@ -32,8 +32,8 @@ export function doLogin(logindata) {
                 }else{
                     response.json()
                         .then(json => {
-                            dispatch(loginError('Error on Login'));
-                            throw error;
+                            console.log("Error on Login",json)
+                            dispatch(loginError(json));
                         });
                 }
             })
@@ -41,9 +41,9 @@ export function doLogin(logindata) {
                 error => {
                     error.json()
                         .then(json => {
-                            console.log('error on Login', error);
+                            console.log('error on Login', json);
                             dispatch(loginError('Error on Login'));
-                            throw error;
+                            throw json;
                         });
                 }
             );

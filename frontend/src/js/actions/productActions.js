@@ -28,9 +28,8 @@ export function fetchProducts() {
                 } else {
                     response.json()
                         .then(json => {
-
-                            dispatch(fetchProductsError('Error on fetching'));
-                            throw error;
+                            console.log("Error Fetching Products",json);
+                            dispatch(fetchProductsError(json));
                         });
                 }
             })
@@ -38,9 +37,9 @@ export function fetchProducts() {
                 error => {
                     error.json()
                         .then(json => {
-                            console.log('parsing failed', error);
+                            console.log('parsing failed', json);
                             dispatch(fetchProductsError('Error on fetching'));
-                            throw error;
+                            throw json;
                         });
                 }
             );

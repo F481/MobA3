@@ -32,8 +32,8 @@ export function doRegistry(registrydata) {
                 }else{
                     response.json()
                         .then(json => {
-                            dispatch(registryError('Error on registry'));
-                            throw error;
+                            console.log('Error on Registry' , json);
+                            dispatch(registryError(json));
                         });
                 }
             })
@@ -41,9 +41,8 @@ export function doRegistry(registrydata) {
                 error => {
                     error.json()
                         .then(json => {
-                            console.log('error on registry', error);
+                            console.log('error on registry', json);
                             dispatch(registryError('Error on registry'));
-                            throw error;
                         });
                 }
             );
