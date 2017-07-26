@@ -42,11 +42,11 @@ class Navbar extends React.Component {
 
         const navbarLogoStyle = {
             height: '220px',
-            transform: 'translate(-200px, -80px)'
+            transform: 'translate(200px, -80px)'
         };
 
         const navbarBrandMargin = {
-            marginRight: '-220px'
+            marginRight: '220px'
         };
 
         var isAuthenticated = this.props.authenticated;
