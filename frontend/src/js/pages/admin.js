@@ -14,6 +14,8 @@ class Admin extends React.Component {
                     <h2>Willkommen!</h2>
                     <hr/>
                     <p>Administrativer Bereich</p>
+                    <p>Token des Users: {this.props.userData.userData.token}</p>
+
                     <hr/>
                 </div>
             );
@@ -30,7 +32,8 @@ class Admin extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        authenticated: state.userData.authenticated
+        authenticated: state.userData.authenticated,
+        userData: state.userData.userData
     };
 }
 
